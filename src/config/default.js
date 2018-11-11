@@ -8,7 +8,7 @@ module.exports = env => ({
   appName: pkg.name,
   version: pkg.version,
   server: {
-    port: process.env.PORT || 3001,
+    port: process.env.PORT || 3002,
     bodyParser: {
       patchKoa: true,
       urlencoded: true,

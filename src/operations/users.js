@@ -4,6 +4,7 @@ const log = require('../utils/logger')
 const userRepository = require('../repositories/users')
 const errors = require('../utils/errors')
 const crypto = require('../utils/crypto')
+const fs = require('fs').promises
 
 async function signUp(input) {
   log.info({ input }, 'signUp')
@@ -41,6 +42,11 @@ async function verifyTokenPayload(input) {
     user,
     loginTimeout: jwtPayload.exp * 1000,
   }
+}
+
+async function saveUser (user,databaseFile) {
+  let fh = fs.open(databaseFile)
+
 }
 
 module.exports = {

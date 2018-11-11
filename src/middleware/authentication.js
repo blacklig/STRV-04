@@ -28,7 +28,13 @@ function parseHeader(hdrValue) {
   if (!hdrValue || typeof hdrValue !== 'string') {
     return null
   }
+  console.time('regexp')
   const matches = hdrValue.match(/(\S+)\s+(\S+)/u)
+  console.timeEnd('regexp')
+
+  // console.time('split')
+  // const matches = hdrValue.split(' ')
+  // console.timeEnd('split')
   return matches && {
     scheme: matches[1],
     value: matches[2],
