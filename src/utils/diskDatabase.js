@@ -1,25 +1,13 @@
 const fs = require('fs').promises
-const databasePath = __dirname + '/../database/'
+const databasePath = __dirname + '/../databases/'
 
 async function loadDatabase (file) {
-  try {
-    let data = await fs.readFile( databasePath + file + '.json', 'utf-8')
-    return JSON.parse(data)
-  }
-  catch (err)
-  {
-    throw err
-  }
+  let data = await fs.readFile( databasePath + file + '.json', 'utf-8')
+  return JSON.parse(data)
 }
 
 async function saveDatabase (file, data) {
-  try {
-    await fs.writeFile( databasePath + file + '.json', JSON.stringify(data), 'utf-8')
-  }
-  catch (err)
-  {
-    throw err
-  }
+  await fs.writeFile( databasePath + file + '.json', JSON.stringify(data), 'utf-8')
 }
 
 module.exports = {
