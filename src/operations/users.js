@@ -24,6 +24,18 @@ async function signUp(input) {
   return newUser
 }
 
+async function signIn(input) {
+  log.info({ input }, 'signIn')
+  let userFoundInDB = await userRepository.findByEmail(input.email.toLowerCase())
+  if (userFoundInDB !== undefined) {
+    if ((await crypto.comparePasswords(input.password,userFoundInDB.password))) {
+      userFoundInDB.accessToken = await crypto.generateAccessToken(userFoundInDB.id)
+      log.info('signIp successful')
+      return userFoundInDB
+    } else throw new errors.UnauthorizedError('Password doesnt match')
+  } else throw new errors.ConflictError('User doesnt exists.')
+}
+
 async function verifyTokenPayload(input) {
   log.info({ input }, 'verifyTokenPayload')
   const jwtPayload = await crypto.verifyAccessToken(input.jwtToken)
@@ -44,12 +56,9 @@ async function verifyTokenPayload(input) {
   }
 }
 
-async function saveUser (user,databaseFile) {
-  let fh = fs.open(databaseFile)
-
-}
 
 module.exports = {
   signUp,
+  signIn,
   verifyTokenPayload,
 }

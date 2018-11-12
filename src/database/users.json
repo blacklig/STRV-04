@@ -1,16 +1,1 @@
-[
-  {
-    "id": 1,
-    "name": "Arthur Dent",
-    "email": "dent@example.com",
-    "password": "Password123!",
-    "disabled": false
-  },
-  {
-    "id": 2,
-    "name": "Ford Prefect",
-    "email": "prefect@example.com",
-    "password": "Password123!",
-    "disabled": false
-  }
-]
+[{"id":1,"name":"Arthur Dent","email":"dent@example.com","password":"Password123!","disabled":false},{"id":2,"name":"Ford Prefect","email":"prefect@example.com","password":"Password123!","disabled":false},{"name":"Arthur Dent","email":"dent2@example.com","password":"$2b$10$wCaIvvjpTsTCIq3ESV09k.WHTQbb.vP2HubE7qFsHDiZtB/rnRRtK","disabled":false,"id":3},{"name":"Jiri Coufal","email":"jiri@example.com","password":"$2b$10$A55HS1FNQ1P1WeceiD3MkumJDVAWB5wkj9egf46nfH/rByxXevqpK","disabled":false,"id":4},{"name":"Jiri Coufal","email":"jiri2@example.com","password":"$2b$10$pbZI8IpuicM3yFSF.1UDdO/.cwUdDRPCuTp1uJc/vUs/3bnitnICW","disabled":false,"id":5},{"name":"Jiri Coufal","email":"jiri3@example.com","password":"$2b$10$0j8SOIFprV5hd6Xh18UTDORfQYgaF0Mt6w6YzM4KDQ0wnJyJJneWq","disabled":false,"id":6},{"name":"Jiri Coufal","email":"jiri4@example.com","password":"$2b$10$THBkbNvSggCuRS0NV9LFJeWblDpN3YDsvu9ciyKgBcvVzjAXJxlQq","disabled":false,"id":7}]

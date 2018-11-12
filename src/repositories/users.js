@@ -2,13 +2,15 @@
 
 const R = require('ramda')
 const errors = require('../utils/errors')
-const users = require('./../database/users.json')
+const diskDB = require ('../utils/diskDatabase.js')
 
-function findAll() {
+async function findAll() {
+  let users = await diskDB.loadDatabase('users')
   return users
 }
 
-function findById(id) {
+async function findById(id) {
+  let users = await diskDB.loadDatabase('users')
   const user = R.find(R.propEq('id', id), users)
   if (!user) {
     throw new errors.NotFoundError()
@@ -16,13 +18,16 @@ function findById(id) {
   return user
 }
 
-function findByEmail(email) {
+async function findByEmail(email) {
+  let users = await diskDB.loadDatabase('users')
   return R.find(R.propEq('email', email), users)
 }
 
-function create(user) {
+async function create(user) {
+  let users = await diskDB.loadDatabase('users')
   user.id = users.length + 1
   users.push(user)
+  await diskDB.saveDatabase('users',users)
   return user
 }
 
